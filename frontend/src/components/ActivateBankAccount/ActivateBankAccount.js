@@ -38,7 +38,7 @@
          
                  try {
                      setLoading(true);
-                     const response = await fetch(`http://localhost:8073/api/customer/${encodeURIComponent(customer_id)}/upi-id`);
+                     const response = await fetch(`http://localhost:8005/api/customer/${encodeURIComponent(customer_id)}/upi-id`);
                      if (!response.ok) {
                          throw new Error('Failed to fetch UPI ID');
                      }
@@ -147,7 +147,7 @@
          
                  try {
                      // Sending activation request to the backend API
-                     const response = await fetch('http://localhost:8073/api/activate-bank-account', {
+                     const response = await fetch('http://localhost:8005/api/activate-bank-account', {
                          method: 'POST',
                          headers: {
                              'Content-Type': 'application/json',

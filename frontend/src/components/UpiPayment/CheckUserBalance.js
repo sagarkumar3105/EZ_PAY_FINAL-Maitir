@@ -35,7 +35,7 @@ const CheckUserBalance = () => {
             setBalanceMessage('');
 
             // Make a GET request to the backend API to fetch the balance
-            const response = await fetch(`http://localhost:8073/api/get-balance?senderUpiId=${encodeURIComponent(upiId)}&SenderUpiPin=${encodeURIComponent(transactionPin)}`);
+            const response = await fetch(`http://localhost:8005/api/get-balance?senderUpiId=${encodeURIComponent(upiId)}&SenderUpiPin=${encodeURIComponent(transactionPin)}`);
 
             // Check if the response status is not ok (>= 400)
             if (!response.ok) {

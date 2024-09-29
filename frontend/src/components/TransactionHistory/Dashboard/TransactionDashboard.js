@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 
-const API_BASE_URL = 'http://localhost:8073/transactions';
+const API_BASE_URL = 'http://localhost:8005/transactions';
 const ITEMS_PER_PAGE = 8;
 
 const TransactionDashboard = () => {
