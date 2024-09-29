@@ -18,8 +18,8 @@ const BarChart = () => {
     const fetchTransactionData = async () => {
       try {
         let customerId=localStorage.getItem('customer_id');
-        const upiResponse = await fetch('http://localhost:8073/api/previousmonthupicount/'+customerId);
-        const bankResponse = await fetch('http://localhost:8073/API/previousmonthbankcount/'+customerId);
+        const upiResponse = await fetch('http://localhost:8005/api/previousmonthupicount/'+customerId);
+        const bankResponse = await fetch('http://localhost:8005/API/previousmonthbankcount/'+customerId);
 
         const upiData = await upiResponse.json();
         const bankData = await bankResponse.json();

@@ -51,7 +51,7 @@ const UpiPayment = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        `http://localhost:8073/api/customer/${encodeURIComponent(
+        `http://localhost:8005/api/customer/${encodeURIComponent(
           customer_id
         )}/upi-id`
       );
@@ -203,7 +203,7 @@ const UpiPayment = () => {
   
     try {
       const response = await fetch(
-        "http://localhost:8073/api/processs-payment",
+        "http://localhost:8005/api/processs-payment",
         {
           method: "POST",
           headers: {
@@ -243,7 +243,7 @@ const UpiPayment = () => {
         const customerId = localStorage.getItem("customer_id");
   
         // Fetch token for validation
-        const tokenResponse = await fetch("http://localhost:8073/generate-token", {
+        const tokenResponse = await fetch("http://localhost:8005/generate-token", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -266,7 +266,7 @@ const UpiPayment = () => {
             <script>
               document.getElementById("validateButton").onclick = async function() {
                 const tokenValue = document.getElementById("token").value;
-                const response = await fetch("http://localhost:8073/validate-token", {
+                const response = await fetch("http://localhost:8005/validate-token", {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",
@@ -278,7 +278,7 @@ const UpiPayment = () => {
                 if (isValid) {
                   localStorage.setItem("tokenValidationMessage", "Token validated successfully! Transaction success");
                 } else {
-                  const flagResponse = await fetch("http://localhost:8073/flagTransaction?customerId=${customerId}", {
+                  const flagResponse = await fetch("http://localhost:8005/flagTransaction?customerId=${customerId}", {
                     method: "POST",
                     headers: {
                       "Content-Type": "application/json",

@@ -50,7 +50,7 @@ const BankTransaction = () => {
     try {
       setPaymentInProgress(true);
       const response = await fetch(
-        `http://localhost:8073/API/customer/${encodeURIComponent(
+        `http://localhost:8005/API/customer/${encodeURIComponent(
           customer_id
         )}/bank-account-number`
       );
@@ -77,7 +77,7 @@ const BankTransaction = () => {
     try {
       setPaymentInProgress(true);
       const response = await fetch(
-        `http://localhost:8073/API/customer/${encodeURIComponent(
+        `http://localhost:8005/API/customer/${encodeURIComponent(
           customer_id
         )}/ifsc-code`
       );
@@ -170,7 +170,7 @@ const BankTransaction = () => {
     setPaymentInProgress(true);
     try {
       const response = await fetch(
-        "http://localhost:8073/API/process-transfer",
+        "http://localhost:8005/API/process-transfer",
         {
           method: "POST",
           headers: {

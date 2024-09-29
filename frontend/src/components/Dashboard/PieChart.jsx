@@ -24,8 +24,8 @@ const PieChart = () => {
         // let items=1;
         // localStorage.setItem('customer_id', JSON.stringify(items));
         let customerId=localStorage.getItem('customer_id');
-        const upiResponse = await fetch('http://localhost:8073/api/totalupi/'+customerId);
-        const bankResponse = await fetch('http://localhost:8073/API/totalbank/'+customerId);
+        const upiResponse = await fetch('http://localhost:8005/api/totalupi/'+customerId);
+        const bankResponse = await fetch('http://localhost:8005/API/totalbank/'+customerId);
 
         const upiData = await upiResponse.json();
         const bankData = await bankResponse.json();
