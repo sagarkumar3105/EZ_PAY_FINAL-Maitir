@@ -22,6 +22,5 @@ public interface FraudEntryRepository extends JpaRepository<FraudEntry, Integer>
     @Modifying
     @Transactional
     @Query("UPDATE FraudEntry fe SET fe.resolved = 1 WHERE fe.customer.customerId = :customerId AND fe.suspiciousActivity.blockId = 1")
-    int updateResolvedForCustomer(Long customerId);
-    
+    int updateResolvedForCustomer(Long customerId);  
 }

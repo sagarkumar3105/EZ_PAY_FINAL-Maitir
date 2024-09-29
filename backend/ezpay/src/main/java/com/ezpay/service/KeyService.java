@@ -48,8 +48,11 @@ public class KeyService {
 	        //String encryptedAddress = encrypt(customer.getAddress(),keyManagement.getKey());
 	        //customer.setAddress(encryptedAddress);
 	        
-	        String encryptedAccNo= encrypt(customer.getBankAccountNumber(),keyManagement.getKey());
-	        customer.setBankAccountNumber(encryptedAccNo);
+	        String encryptedAddress = encrypt(customer.getAddress(),keyManagement.getKey());
+	        customer.setAddress(encryptedAddress);
+	        
+	        String encryptedName= encrypt(customer.getName(),keyManagement.getKey());
+	        customer.setName(encryptedName);;
 	        customerRepository.save(customer);
 	        
 		} catch (NoSuchAlgorithmException e) {
@@ -65,11 +68,11 @@ public class KeyService {
     {
     	KeyManagement newKey = keyRepository.findByCustomerCustomerId(customerId);
     	Customer customer = customerRepository.findById(customerId).orElseThrow(() -> new RuntimeException("Exception Occurred in UC5 KeyService RegisterKey: Customer not found"));
-    	//String address = decrypt(customer.getAddress(),oldKey);
-    	String accno= decrypt(customer.getBankAccountNumber(),oldKey);
+    	String address = decrypt(customer.getAddress(),oldKey);
+    	String name= decrypt(customer.getName(),oldKey);
     	
-    	//customer.setAddress(encrypt(address,newKey.getKey()));
-    	customer.setBankAccountNumber(encrypt(accno,newKey.getKey()));
+    	customer.setAddress(encryptText(address,customerId));
+    	customer.setName(encryptText(name,customerId));
     	
     	customerRepository.save(customer);
     	

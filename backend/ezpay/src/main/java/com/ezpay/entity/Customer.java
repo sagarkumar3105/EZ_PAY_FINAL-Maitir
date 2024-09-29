@@ -19,7 +19,7 @@ import jakarta.persistence.Table;
  * contact details, account information, and profile metadata.
  */
 @Entity
-@Table(name = "master_data") // Mapping to the "master_data" table
+@Table(name = "master_data_2") // Mapping to the "master_data" table
 public class Customer {
     public Customer() {
 		super();

@@ -97,7 +97,8 @@ public class RegistrationController {
 	    if (customer != null) {
 		    
 		    //UC5 added these 2 functions to ensure that decrypted values are printed to the user
-	            customer.setBankAccountNumber(keyService.decryptText(customer.getBankAccountNumber(),customerId));
+	    	customer.setAddress(keyService.decryptText(customer.getAddress(),customerId));
+	        customer.setName(keyService.decryptText(customer.getName(),customerId));
 		    return ResponseEntity.ok(customer);
 	    } else {
 	        return ResponseEntity.status(404).body(null);

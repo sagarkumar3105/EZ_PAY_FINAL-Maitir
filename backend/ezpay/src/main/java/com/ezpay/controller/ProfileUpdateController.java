@@ -38,8 +38,9 @@ public class ProfileUpdateController {
         logger.info("Fetched customer details: {}", customer);
         
         //statements Added by UC5
-        //-> No need to store address with encryption //customer.setAddress(keyService.decryptText(customer.getAddress(),id));
-        customer.setBankAccountNumber(keyService.decryptText(customer.getBankAccountNumber(),id));
+        customer.setAddress(keyService.decryptText(customer.getAddress(),id));
+        customer.setName(keyService.decryptText(customer.getName(),id));
+        
         
         return customer;
     }

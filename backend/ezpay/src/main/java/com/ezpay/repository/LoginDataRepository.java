@@ -16,4 +16,6 @@ public interface LoginDataRepository extends JpaRepository<LoginData, String> {
     Optional<LoginData> findByCustomer(Customer customer);
     //UC5 added this
      LoginData findByCustomerCustomerId(Long customerId);
+     
+     LoginData findBySuspiciousActivityBlockId(Integer blockId);
 }
